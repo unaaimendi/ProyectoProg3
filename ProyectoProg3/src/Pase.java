@@ -1,7 +1,7 @@
 
-public class hola {
+public class Pase {
 
-	public hola() {
+	public Pase() {
 		// TODO Auto-generated constructor stub
 	}
 
