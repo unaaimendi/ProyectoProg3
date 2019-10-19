@@ -19,7 +19,7 @@ public class LogIn extends JFrame {
 	
 
 	public LogIn() {
-		
+	
 		setSize(600,400);
 		setTitle("LOG IN");
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
