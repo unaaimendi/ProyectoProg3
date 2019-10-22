@@ -20,4 +20,8 @@ public class Pelicula {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
+	
+	
 }

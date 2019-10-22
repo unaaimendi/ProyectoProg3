@@ -6,6 +6,10 @@
 //
 
 public class Sala {
+	
+	private int numero_sala; 
+	private int capacidad_sala; // hace referencia al número de asiesntos de cada salsa
+	
 
 	public Sala() {
 		// TODO Auto-generated constructor stub

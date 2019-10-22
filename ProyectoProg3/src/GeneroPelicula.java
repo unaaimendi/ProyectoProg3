@@ -3,5 +3,8 @@
 // comedia, drama, terror, ciencia-ficción, infantiles
 
 public enum GeneroPelicula {
+	
+			Terror, Comedia, Infantiles, Accion 
+			//...
 
 }
