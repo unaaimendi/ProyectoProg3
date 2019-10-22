@@ -6,9 +6,14 @@ import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Scanner;
 
 import javax.swing.*;
-
 
 
 public class LogIn extends JFrame {
@@ -18,11 +23,13 @@ public class LogIn extends JFrame {
 	JLabel lCorreo, lContraseña,lLogin,lPelicula, lSala, lHora, lAsiento; 
 	JTextField tfCorreo; 
 	JPasswordField jpContraseña; 
+	//private static JDialog v;
 	
 
 	public LogIn() {
-	
+		
 		setSize(600,400);
+		setLocation(300, 200);
 		setTitle("LOG IN");
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 		
@@ -83,7 +90,7 @@ public class LogIn extends JFrame {
 		
 			//bConfirmar.setBackground(Color.cyan);
 		bRegistrar = new JButton("Registrar"); 
-		bAtras = new JButton("Registrar");
+		bAtras = new JButton("Atras");
 	
 		pBotonera.add(bAtras); 
 		pBotonera.add(bConfirmar); 
@@ -93,16 +100,70 @@ public class LogIn extends JFrame {
 		// Action Events para los botones 
 		
 		bAtras.addActionListener((ActionEvent e) -> {});
-		bRegistrar.addActionListener((ActionEvent e) -> {} );
+		bRegistrar.addActionListener((ActionEvent e) -> {accedeRegistro();} );
 		bConfirmar.addActionListener((ActionEvent e) -> {});
+		
+	
+		
+	
+	}
+	
+	
+	/** Método que contiene el hilo que nos permite
+	 * cambiar de ventana de Login a ventana registro 
+	 */
+	private void accedeRegistro() {
+		Thread t1 = new Thread() {
+			public void run() {
+				//LogIn.guardaConfig();
+				setVisible(false);
+				Registro.main(null); 
+
+				dispose();
+			}				
+		}; 
+		t1.start();
 
 	}
+
+//	public static void guardaConfig() {
+//		try {
+//			PrintStream ps = new PrintStream( "config.txt" );
+//			ps.println( v.getWidth() );
+//			ps.println( v.getHeight() );
+//			ps.println( v.getX() );
+//			ps.println( v.getY() );
+//
+//			ps.close();
+//		} catch (Exception e) {
+//			JOptionPane.showMessageDialog( null, "Error en creación de fichero config.txt", "Error de configuración", JOptionPane.ERROR_MESSAGE );
+//		}
+//	}
+//
+//
+//	public static void cargaConfig() {
+//		try {
+//			Scanner scanner = new Scanner( new File("config.txt") );
+//			String linea = scanner.nextLine(); // anchura y altura
+//			String linea2 = scanner.nextLine();
+//			v.setSize( Integer.parseInt(linea), Integer.parseInt(linea2) );
+//			linea = scanner.nextLine(); // x e y
+//			linea2 = scanner.nextLine();
+//			v.setLocation( Integer.parseInt(linea), Integer.parseInt(linea2) );
+//	
+//			
+//			scanner.close();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
 	
 	
 	public static void main(String[] args) {
 		LogIn ventLogin = new LogIn(); 
 		ventLogin.setVisible(true);
+		
 	}
 	
 

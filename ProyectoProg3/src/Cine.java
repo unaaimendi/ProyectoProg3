@@ -5,7 +5,8 @@
 public class Cine {
 	
 	private String nombre_cine; 
-	private String direc_cine; 
+	private String direccion_cine;
+	
 	
 	// Array de peli ? 
 	// Array de salas ?

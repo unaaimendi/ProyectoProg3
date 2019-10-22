@@ -17,6 +17,8 @@ public class Registro extends JFrame {
 		public Registro() {
 		
 			setSize(600,400);
+			setLocation(300, 200);
+
 			setTitle("Registro");
 			setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 			
@@ -29,10 +31,7 @@ public class Registro extends JFrame {
 			lRegistro.setFont(new java.awt.Font("Tahoma", 1, 18));
 			pSuperior.add(lRegistro);
 			
-			
-		
-		
-			
+
 			JPanel pCentral = new JPanel(); 
 			
 			// COnseguir que se pongan en fila 
@@ -41,9 +40,7 @@ public class Registro extends JFrame {
 			FlowLayout lay = new FlowLayout(); 
 			lay.setAlignOnBaseline(true);
 			pCentral.setLayout(lay);
-			
-			
-		
+
 			
 			lCorreo = new JLabel("Correo :"); 
 			lContraseña = new JLabel("Contraseña :");
@@ -73,10 +70,7 @@ public class Registro extends JFrame {
 			
 			pCentral.add(lNumero_tarjeta); 
 			pCentral.add(tfNumero_tarjeta);
-		
-			
-			
-			
+	
 			
 			JPanel pBotonera = new JPanel(); 
 			getContentPane().add(pBotonera, BorderLayout.SOUTH);
@@ -92,7 +86,7 @@ public class Registro extends JFrame {
 			
 			// Action Events para los botones 
 			
-			bAtras.addActionListener((ActionEvent e) -> {}); // Vuelve a la de LOGIN
+			bAtras.addActionListener((ActionEvent e) -> {volverAtras();}); // Vuelve a la de LOGIN
 			
 			bRegistrar.addActionListener((ActionEvent e) -> {} ); // Procede a registrar el usuario 
 			// si es correcto el registo JOptionPanel de Bienvenido y pantalla de fin de compra o login ??
@@ -100,6 +94,18 @@ public class Registro extends JFrame {
 
 		}
 		
+		public void volverAtras() {
+			Thread t1 = new Thread() {
+				public void run() {
+					setVisible(false);
+					LogIn.main(null); 
+
+					dispose();
+				}				
+			}; 
+			t1.start();
+		
+		}
 		
 		
 		public static void main(String[] args) {
